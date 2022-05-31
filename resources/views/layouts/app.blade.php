@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Sehat.in | Your Daily App</title>
+    <title>Peminjaman Ruangan | Your Best Website</title>
 
     @stack('upper-css')
 
@@ -85,7 +85,7 @@
                     @endauth
                     @guest
                         <li class="nav-item"><a href={{ route('login') }} class="nav-link">Login</a></li>
-                        <a href={{ route('register') }} class="btn btn-warning" type="button">Register</a>
+                        <a href={{ route('register') }} class="btn btn-danger" type="button">Register</a>
                     @endguest
                 </ul>
             </div>
@@ -98,9 +98,9 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; Sehat.in 2021</div>
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Telkom University 2021</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/sehatin/"><i
+                    <a class="btn btn-dark btn-social mx-2" href="#"><i
                             class="fab fa-instagram"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
