@@ -65,7 +65,7 @@
                     <span>{{ __('Home') }}</span></a>
             </li>
 
-            @if ((Auth::user() && Auth::user()->roles == 'mitra') || (Auth::user() && Auth::user()->roles == 'admin'))
+            @if (Auth::user() && Auth::user()->roles == 'admin')
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -87,8 +87,6 @@
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>{{ __('Booking') }}</span></a>
                 </li>
-            @endif
-            @if (Auth::user() && Auth::user()->roles == 'admin')
                 <!-- Nav Item - Category
                 <li class="nav-item {{ Nav::isRoute('category*') }}">
                     <a class="nav-link" href="{{ route('category') }}">

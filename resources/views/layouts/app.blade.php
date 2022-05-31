@@ -53,7 +53,7 @@
                     @auth
                         <li class="nav-item"><a class="nav-link" href="{{ route('history') }}">History</a>
                         </li>
-                        @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'mitra')
+                        @if (Auth::user()->roles == 'admin')
                             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Dashboard</a>
                             </li>
                         @endif

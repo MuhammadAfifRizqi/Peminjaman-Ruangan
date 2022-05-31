@@ -70,7 +70,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="facility">{{ __('Room Facility') }}<span class="small text-danger">*</span></label>
-                                    <textarea class="form-control" id="facility" name="facility" rows="3">{{ $data->facility }}</textarea>
+                                    <textarea class="form-control" id="facility" name="facility" rows="5">{{ $data->facility }}</textarea>
                                 </div>
                             </div>
                         </div>

@@ -39,11 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/{id_product}', 'PageController@payment')->name('payment');
     Route::get('/success/{id_product}', 'PageController@topUp_process')->name('topUp_process');
     Route::get('/history', 'PageController@history')->name('history');
+    
+    // Admin Home
+    Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::middleware('mitra')->group(function () {
+    // ============================================================
+    // ========================== ADMIN ===========================
+    // ============================================================
+    Route::prefix('admin')->middleware('admin')->group(function () {
 
-        // Admin Home
-        Route::get('/home', 'HomeController@index')->name('home');
 
         // Store
         Route::prefix('profile')->name('profile')->group(function () {
@@ -104,7 +108,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/create', 'OrderController@create_process')->name('.create.process');
             Route::get('/delete/{id}', 'OrderController@delete')->name('.delete');
         });
-        
+
         // =========================================================== Batas
 
         // Room
@@ -115,8 +119,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/update/{id}', 'RoomController@update_view')->name('.update');
             Route::post('/update/{id}', 'RoomController@update_process')->name('.update.process');
             Route::get('/delete/{id}', 'RoomController@delete')->name('.delete');
-        }); 
-        
+        });
+
         // Booking
         Route::prefix('booking')->name('booking')->group(function () {
             Route::get('/', 'BookingController@index')->name('');
@@ -124,40 +128,29 @@ Route::middleware('auth')->group(function () {
             Route::post('/create', 'BookingController@create_process')->name('.create.process');
             Route::get('/delete/{id}', 'BookingController@delete')->name('.delete');
         });
-        
-        // ===========================================================
-        // ========================== ADMIN ===========================
-        // ===========================================================
-        Route::prefix('admin')->middleware('admin')->group(function () {
 
-            // Users
-            Route::prefix('user')->name('user')->group(function () {
-                Route::get('/', 'UsersController@index')->name('');
-                Route::get('/create', 'UsersController@create_view')->name('.create');
-                Route::post('/create', 'UsersController@create_process')->name('.create.process');
-                Route::get('/update/{id}', 'UsersController@update_view')->name('.update');
-                Route::post('/update/{id}', 'UsersController@update_process')->name('.update.process');
-                Route::post('/update-password/{id}', 'UsersController@change_password')->name('.update.password.process');
-                Route::get('/delete/{id}', 'UsersController@delete')->name('.delete');
-            });
-
-            // Categories
-            Route::prefix('category')->name('category')->group(function () {
-                Route::get('/', 'CategoryController@index')->name('');
-                Route::get('/create', 'CategoryController@create_view')->name('.create');
-                Route::post('/create', 'CategoryController@create_process')->name('.create.process');
-                Route::get('/update/{id}', 'CategoryController@update_view')->name('.update');
-                Route::post('/update/{id}', 'CategoryController@update_process')->name('.update.process');
-                Route::get('/delete/{id}', 'CategoryController@delete')->name('.delete');
-            });
-
-            // ===========================================================
-            // ======================== END ADMIN ========================
-            // ===========================================================
+        // Users
+        Route::prefix('user')->name('user')->group(function () {
+            Route::get('/', 'UsersController@index')->name('');
+            Route::get('/create', 'UsersController@create_view')->name('.create');
+            Route::post('/create', 'UsersController@create_process')->name('.create.process');
+            Route::get('/update/{id}', 'UsersController@update_view')->name('.update');
+            Route::post('/update/{id}', 'UsersController@update_process')->name('.update.process');
+            Route::post('/update-password/{id}', 'UsersController@change_password')->name('.update.password.process');
+            Route::get('/delete/{id}', 'UsersController@delete')->name('.delete');
         });
 
-        // ===========================================================
-        // =========================== END ===========================
-        // ===========================================================
+        // Categories
+        Route::prefix('category')->name('category')->group(function () {
+            Route::get('/', 'CategoryController@index')->name('');
+            Route::get('/create', 'CategoryController@create_view')->name('.create');
+            Route::post('/create', 'CategoryController@create_process')->name('.create.process');
+            Route::get('/update/{id}', 'CategoryController@update_view')->name('.update');
+            Route::post('/update/{id}', 'CategoryController@update_process')->name('.update.process');
+            Route::get('/delete/{id}', 'CategoryController@delete')->name('.delete');
+        });
+        // =================================================================
+        // =========================== END ADMIN ===========================
+        // =================================================================
     });
 });
