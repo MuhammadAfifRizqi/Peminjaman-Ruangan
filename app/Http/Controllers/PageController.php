@@ -10,6 +10,7 @@ use App\User;
 use App\View;
 use App\Recipe;
 use App\Order;
+use App\Room;
 
 use DataTables;
 use Illuminate\Http\Request;
@@ -27,19 +28,19 @@ class PageController extends Controller
 
     public function katalog(Request $request, $search = "")
     {
-        $product = Products::paginate(8);
+        $room = Room::paginate(8);
         $category = Category::all();
         if (isset($request->category)) {
-            $product = Products::where('id_category', '=', $request->category)->paginate(8)->get();
+            $room = Room::where('id_category', '=', $request->category)->paginate(8)->get();
         } else {
             if (isset($request->search)) {
                 $search = $request->search;
             }
-            $product = Products::where('title', 'LIKE', '%' . $search . '%')
-                ->orWhere('description', 'LIKE', '%' . $search . '%')
+            $room = Room::where('room_number', 'LIKE', '%' . $search . '%')
+                ->orWhere('facility', 'LIKE', '%' . $search . '%')
                 ->paginate(8);
         }
-        return view('katalog', compact('product', 'category', 'search'));
+        return view('katalog', compact('room', 'category', 'search'));
     }
 
     public function detailProduk(Request $request, $id_product)

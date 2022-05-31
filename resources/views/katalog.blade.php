@@ -30,16 +30,16 @@ function rupiah($angka)
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            @foreach($product as $pt)
+            @foreach($room as $pt)
             <div class="col-md-6 col-xl-3 mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="{{$pt->photo === null ? asset('img/il_login.png') : asset('storage/' . $pt->photo)}}" style="object-fit:cover;" height='200px' alt="..." />
+                    <img class="card-img-top" src="{{$pt->photo === null ? asset('img/logo.png') : asset('storage/' . $pt->photo)}}" style="object-fit:cover;" height='200px' alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">{{$pt->title}}</h5>
+                            <h5 class="fw-bolder">{{$pt->room_number}}</h5>
                             <!-- Product price-->
                             <!-- <h4 class="fw-bolder-price">{{rupiah($pt->price)}}</h4> -->
                         </div>
@@ -57,7 +57,7 @@ function rupiah($angka)
 <!-- Pagination -->
 <nav class="d-flex justify-content-center" aria-label="Page navigation example">
     <ul class="pagination mx-auto">
-        {{ $product->links() }}
+        {{ $room->links() }}
     </ul>
 </nav>
 <!-- Bootstrap core JS-->
