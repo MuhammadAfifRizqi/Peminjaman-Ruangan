@@ -12,9 +12,11 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Room::latest()->paginate(6);
+
+        return view('cms.room.room', compact('data'));
     }
 
     /**
@@ -22,9 +24,34 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create_view()
     {
-        //
+        return view('cms.room.create');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create_process(Request $request)
+    {
+        $request->validate([
+            'room_number' => 'required',
+            'type' => 'required',
+            'capacity' => 'required',
+            'facility' => 'required',
+        ]);
+
+        $room = new Room();
+        $room->room_number = $request->room_number;
+        $room->type = $request->type;
+        $room->capacity = $request->capacity;
+        $room->facility = $request->facility;
+        $room->status = "not_used";
+        $room->save();
+
+        return redirect()->route('room')->withSuccess('Room created successfully.');
     }
 
     /**
@@ -33,53 +60,42 @@ class RoomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function update_view($id)
     {
-        //
+        $data = Room::find($id);
+        return view('cms.room.update', compact('data'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Room $room)
+    public function update_process(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'room_number' => 'required',
+            'type' => 'required',
+            'capacity' => 'required',
+            'facility' => 'required',
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Room $room)
-    {
-        //
-    }
+        $room = Room::find($id);
+        $room->room_number = $request->room_number;
+        $room->type = $request->type;
+        $room->capacity = $request->capacity;
+        $room->facility = $request->facility;
+        $room->save();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Room $room)
-    {
-        //
+        return redirect()->route('room')->withSuccess('Room updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Room  $room
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function delete($id)
     {
-        //
+        $room = Room::find($id);
+        $room->delete();
+
+        return redirect()->route('room')->withSuccess('Room deleted successfully.');
     }
 }

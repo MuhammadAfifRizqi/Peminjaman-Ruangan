@@ -104,7 +104,27 @@ Route::middleware('auth')->group(function () {
             Route::post('/create', 'OrderController@create_process')->name('.create.process');
             Route::get('/delete/{id}', 'OrderController@delete')->name('.delete');
         });
+        
+        // =========================================================== Batas
 
+        // Room
+        Route::prefix('room')->name('room')->group(function () {
+            Route::get('/', 'RoomController@index')->name('');
+            Route::get('/create', 'RoomController@create_view')->name('.create');
+            Route::post('/create', 'RoomController@create_process')->name('.create.process');
+            Route::get('/update/{id}', 'RoomController@update_view')->name('.update');
+            Route::post('/update/{id}', 'RoomController@update_process')->name('.update.process');
+            Route::get('/delete/{id}', 'RoomController@delete')->name('.delete');
+        }); 
+        
+        // Booking
+        Route::prefix('booking')->name('booking')->group(function () {
+            Route::get('/', 'BookingController@index')->name('');
+            Route::get('/create', 'BookingController@create_view')->name('.create');
+            Route::post('/create', 'BookingController@create_process')->name('.create.process');
+            Route::get('/delete/{id}', 'BookingController@delete')->name('.delete');
+        });
+        
         // ===========================================================
         // ========================== ADMIN ===========================
         // ===========================================================

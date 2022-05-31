@@ -74,27 +74,27 @@
                     {{ __('CMS') }}
                 </div>
 
-                <!-- Nav Item - Product -->
-                <li class="nav-item {{ Nav::isRoute('product*') }}">
-                    <a class="nav-link" href="{{ route('product') }}">
-                        <i class="fas fa-fw fa-shopping-bag"></i>
-                        <span>{{ __('Product') }}</span></a>
+                <!-- Nav Item - Room -->
+                <li class="nav-item {{ Nav::isRoute('room*') }}">
+                    <a class="nav-link" href="{{ route('room') }}">
+                        <i class="fas fa-fw fa-box"></i>
+                        <span>{{ __('Room') }}</span></a>
                 </li>
 
-                <!-- Nav Item - Order -->
-                <li class="nav-item {{ Nav::isRoute('order*') }}">
-                    <a class="nav-link" href="{{ route('order') }}">
+                <!-- Nav Item - Booking -->
+                <li class="nav-item {{ Nav::isRoute('booking*') }}">
+                    <a class="nav-link" href="{{ route('booking') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
-                        <span>{{ __('Order') }}</span></a>
+                        <span>{{ __('Booking') }}</span></a>
                 </li>
             @endif
             @if (Auth::user() && Auth::user()->roles == 'admin')
-                <!-- Nav Item - Category -->
+                <!-- Nav Item - Category
                 <li class="nav-item {{ Nav::isRoute('category*') }}">
                     <a class="nav-link" href="{{ route('category') }}">
                         <i class="fas fa-fw fa-filter"></i>
                         <span>{{ __('Category') }}</span></a>
-                </li>
+                </li> -->
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
