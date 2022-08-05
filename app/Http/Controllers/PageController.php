@@ -22,8 +22,7 @@ class PageController extends Controller
 {
     public function welcome(Request $request)
     {
-        $product = Products::latest()->take(6)->get();
-        return view('welcome', compact('product'));
+        return view('welcome');
     }
 
     public function katalog(Request $request, $search = "")
