@@ -21,6 +21,11 @@ class CreateRoomsTable extends Migration
             $table->text('facility');
             $table->string('status')->default('not_used');
             $table->timestamps();
+
+            $table->foreign('id_room')
+                ->references('id')
+                ->on('rooms')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
