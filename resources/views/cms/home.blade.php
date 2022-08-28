@@ -77,8 +77,11 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
-    <div class="card mr-4" style="width: 18rem;">
+   
+   
+    <!-- #### -->
+    <!-- ##Gedung TULT## -->
+    <div class="card mr-5" style="width: 18rem;">
         <img class="card-img-top" src="{{asset('img/Gedung-tult.jpg')}}" alt=>
      <div class="card-body">
      <h5 class="card-title">Gedung TULT</h5>
@@ -88,83 +91,144 @@
   Detail Gedung
 </button>
 
-<!-- Modal -->
+
+<!-- Modal 1 -->
+<!-- ##Detail Gedung POP UP dan Informasi## -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="Detail" id="exampleModalLabel">Detail</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-            Gedung TULT adalah gedung baru yang berada di Telkom University
+        Tepat pada Rabu 19 Juni 2019, Ketua YPT Dr. Dwi S Purnomo beserta jajaran didampingi Rektor Telkom University, Prof. Adiwijaya, bersama Bupati Kab. Bandung, H. Dadang M. Nasser serta Ketua Lembaga Layanan Pendidikan Tinggi (LLDIKITI) Wilayah IV, Prof. Uman Suherman melaksanakan Groundbreaking (Peletakan Batu Pertama) pembangunan TULT.
+        “Gedung ini akan dibangun setinggi 19 lantai dan menjadi gedung perkuliahan tertinggi di wilayah Jawa Barat serta merupakan smart building dan mengusung konsep go green. Nantinya akan digunakan untuk proses belajar mengajar, di dalamnya terdiri dari 178 ruang kelas, ruang kesehatan, ruang dosen, ruang serbaguna, ruang rapat/sidang, mushola, laboratorium serta Research Center,” Ucap Dwi.
+        Lokasinya yang berada tidak jauh dari jalan tol, pastinya membuat kita tertarik untuk melihat sejenak ke arah gedung baru TULT ini. Memiliki ketinggian 20 lantai, membuatnya sangat iconic, dan sangat pas dengan nama yang diberikan, yaitu landmark atau tanda dari kampus Universitas Telkom Bandung.
+        Sangat diharapkan oleh banyak mahasiswa agar gedung baru TULT ini bisa bermanfaat bagi semua mahasiswa serta menunjang fasilitias para mahasiswa, sehingga ke depan. Telkom University juga diharapkan bisa terus mencetak generasi terbaik untuk bangsa dengan adanya gedung baru ini.
+        Mari bergabung bersama Telkom University untuk dapat merasakan fasilitas ini.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+     
+        </div>
+          </div>
+             </div>
+                </div>
           </div>
     </div>
 
-    <div class="card mr-4" style="width: 18rem;">
-        <img class="card-img-top" src="{{asset('img/Gedung-tult.jpg')}}" alt=>
+<!-- #### -->
+<!-- ##Gedung B## -->
+    <div class="card mr-5" style="width: 18rem;">
+        <img class="card-img-top" src="{{asset('img/Gedung-B.jpg')}}" alt=>
      <div class="card-body">
      <h5 class="card-title">Gedung B</h5>
-     <p class="card-text">Gedung B adalah gedung yanng berhantu</p>
-     <a href="#" class="btn btn-primary">Detail</a>
-          </div>
-    </div>
+     <p class="card-text">Gedung B adalah gedung yang dulunya adalah gedung FRI</p>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+     Detail Gedung
+    </button>
 
-    <div class="card mr-4" style="width: 18rem;">
-        <img class="card-img-top" src="{{asset('img/Gedung-rektorat.jpeg')}}" alt=>
-     <div class="card-body">
-     <h5 class="card-title">Gedung Auditorium</h5>
-     <p class="card-text">Gedung yang dipakai untuk acara besar</p>
-     <a href="#" class="btn btn-primary">Detail</a>
-          </div>
-    </div>
-
-    <div class="card mr-4" style="width: 18rem;">
-        <img class="card-img-top" src="Gedung TULT.jpg" alt=>
-     <div class="card-body">
-     <h5 class="card-title">Gedung GKU</h5>
-     <p class="card-text">Gedung GKU adalah gedung yang di gunakan untuk kuliah umum</p>
-     <a href="#" class="btn btn-primary">Detail</a>
-          </div>
-    </div>
-   
-    <div class="col-md-4 my-4">
-        <div class="card h-100">
-            {!! $chartExpense->container() !!}
-        </div>
-    </div>
-    
-    <div aria-labelledby="exampleModalCenterTitle" aria-hidden="true" id="#modal1" class="modal fade" tabindex="-1" role="dialog">
+    <!-- Modal 2 -->
+    <!-- ##Detail Gedung POP UP dan Penjelasan## -->
+ <div class="modal fade" id="exampleModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="Detail" id="exampleModalLabel">Detail</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+      Fakultas Rekayasa Industri (FRI) terdiri dari 2 (dua) gedung dengan masing-masing 3 
+      lantai yaitu Gedung Grha Wiyata Cacuk Sudarijanto-B dengan total luas 5,676.48 m2 dan Gedung Karang dengan total luas 4,848.72 m2.
+      Kedua gedung ini berfungsi sebagai gedung kuliah dan administrasi Fakultas Rekayasa Industri.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+          </div>
+    </div>
 
-        
+    <!-- #### -->
+    <!-- ##Gedung Auditorium## -->
+    <div class="card mr-5" style="width: 18rem;">
+        <img class="card-img-top" src="{{asset('img/Gedung-audit.jpg')}}" alt=>
+     <div class="card-body">
+     <h5 class="card-title">Gedung Auditorium</h5>
+     <p class="card-text">Gedung yang dipakai untuk acara besar dan pertemuan seluruh dosen</p>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+     Detail Gedung
+    </button>
+
+    <!-- Modal 3 -->
+    <!-- ##Detail Gedung dan POP UP dan Penjelasan## -->
+     <div class="modal fade" id="exampleModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="Detail" id="exampleModalLabel">Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Fakultas Rekayasa Industri (FRI) terdiri dari 2 (dua) gedung dengan masing-masing 3 
+      lantai yaitu Gedung Grha Wiyata Cacuk Sudarijanto-B dengan total luas 5,676.48 m2 dan Gedung Karang dengan total luas 4,848.72 m2.
+      Kedua gedung ini berfungsi sebagai gedung kuliah dan administrasi Fakultas Rekayasa Industri.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+          </div>
+    </div>
+
+    <!-- #### -->
+    <!-- ##Gedung GKU## -->
+    <div class="card mr-5" style="width: 18rem;">
+        <img class="card-img-top" src="{{asset('img/Gedung-rektorat.jpeg')}}" alt=>
+     <div class="card-body">
+     <h5 class="card-title">Gedung GKU</h5>
+     <p class="card-text">Gedung GKU adalah gedung yang di gunakan untuk kuliah umum</p>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+     Detail Gedung
+    </button>
+
+    <!-- Modal 4 -->
+    <!-- ##Detail Gedung dan POP UP dan Penjelasan## -->
+   
+    <div class="modal fade" id="exampleModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="Detail" id="exampleModalLabel">Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Fakultas Rekayasa Industri (FRI) terdiri dari 2 (dua) gedung dengan masing-masing 3 
+      lantai yaitu Gedung Grha Wiyata Cacuk Sudarijanto-B dengan total luas 5,676.48 m2 dan Gedung Karang dengan total luas 4,848.72 m2.
+      Kedua gedung ini berfungsi sebagai gedung kuliah dan administrasi Fakultas Rekayasa Industri.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+          </div>
+    </div>
+   
 
 
 <script src="{{ $chartArea->cdn() }}"></script>
