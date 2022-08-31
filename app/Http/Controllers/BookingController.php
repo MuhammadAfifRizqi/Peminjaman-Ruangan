@@ -26,6 +26,8 @@ class BookingController extends Controller
                     $button = '<a href="' . action('BookingController@accept', $data->id) . '" type="button" name="edit" id="' . $data->id . '" class="edit btn btn-primary btn-sm">Accept</a>';
                     $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('BookingController@decline', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"'."onclick='return confirm()'".'>Decline</a>';
                     return $button;
+                })->addColumn('phone_number', function ($data) {
+                    return $data->user->phone_number;
                 })->addColumn('position', function ($data) {
                     return $data->user->position;
                 })->addColumn('user_name', function ($data) {
@@ -35,7 +37,7 @@ class BookingController extends Controller
                 })->addColumn('building', function ($data) {
                     return $data->room->building->name;
                 })
-                ->rawColumns(['action','position','user_name','room_name','building'])
+                ->rawColumns(['action','position','user_name','room_name','building','phone_number'])
                 ->make(true);
         }
 
@@ -47,79 +49,38 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create_view()
-    // {
-    //     return view('cms.booking.create');
-    // }
+    public function create_view()
+    {
+        $users = User::all();
+        $rooms = Room::all();
+        return view('cms.booking.create', compact('users','rooms'));
+    }
 
     // /**
     //  * Show the form for creating a new resource.
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function create_process(Request $request)
-    // {
-    //     $request->validate([
-    //         'room_number' => 'required',
-    //         'type' => 'required',
-    //         'capacity' => 'required',
-    //         'facility' => 'required',
-    //     ]);
-
-    //     $room = new Room();
-    //     $room->room_number = $request->room_number;
-    //     $room->type = $request->type;
-    //     $room->capacity = $request->capacity;
-    //     $room->facility = $request->facility;
-    //     $room->status = "not_used";
-    //     $room->save();
-
-    //     return redirect()->route('room')->withSuccess('Room created successfully.');
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    // public function update_view($id)
-    // {
-    //     $data = Booking::find($id);
-    //     return view('cms.booking.update', compact('data'));
-    // }
-
-    // public function update_process(Request $request, $id)
-    // {
-        // $request->validate([
-        //     'room_number' => 'required',
-        //     'type' => 'required',
-        //     'capacity' => 'required',
-        //     'facility' => 'required',
-        // ]);
-
-        // $room = Booking::find($id);
-        // $room->room_number = $request->room_number;
-        // $room->type = $request->type;
-        // $room->capacity = $request->capacity;
-        // $room->facility = $request->facility;
-        // $room->save();
-
-        // return redirect()->route('booking')->withSuccess('Booking updated successfully.');
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function delete($id)
+    public function create_process(Request $request)
     {
-        $booking = Booking::find($id);
-        $booking->delete();
+        $request->validate([
+            'id_user' => 'required',
+            'id_room' => 'required',
+            'start_date' => 'required',
+            'time' => 'required',
+            'lecturer_code' => 'required',
+        ]);
 
-        return redirect()->route('booking')->withSuccess('Booking deleted successfully.');
+        $booking = new Booking();
+        $booking->id_user = $request->id_user;
+        $booking->id_room = $request->id_room;
+        $booking->start_date = $request->start_date;
+        $booking->time = $request->time;
+        $booking->lecturer_code = $request->lecturer_code;
+        $booking->status = "pending";
+        $booking->save();
+
+        return redirect()->route('booking')->withSuccess('Booking created successfully.');
     }
 
     public function accept($id)

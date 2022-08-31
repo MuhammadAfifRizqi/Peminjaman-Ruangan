@@ -36,8 +36,8 @@
                     name: 'start_date'
                 },
                 {
-                    data: 'end_date',
-                    name: 'end_date'
+                    data: 'time',
+                    name: 'time'
                 },
                 {
                     data: 'lecturer_code',
@@ -71,6 +71,11 @@
 
 <nav class="navbar navbar-light px-0 py-3">
     <h1 class="h3 mb-4 text-gray-800">{{ __('Booking') }}</h1>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="{{ route('booking.create') }}" class="btn btn-dark border-0">New Booking</a>
+        </li>
+    </ul>
 </nav>
 
 @if (session('success'))
@@ -108,7 +113,7 @@
                         <th>Room</th>
                         <th>Building</th>
                         <th>Start Date</th>
-                        <th>End Date</th>
+                        <th>Time</th>
                         <th>Lecture Code</th>
                         <th>Phone Number</th>
                         <th>Status</th>

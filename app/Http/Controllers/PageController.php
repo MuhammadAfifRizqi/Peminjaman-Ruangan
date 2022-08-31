@@ -57,34 +57,6 @@ class PageController extends Controller
         return view('detailProduk', compact('product', 'data', 'recipe', 'material', 'price'));
     }
 
-    public function payment(Request $request, $id_product)
-    {
-        $product = Products::find($id_product);
-        $recipe = Recipe::where('id_product', '=', $product->id)->first();
-        $material = Material::where('id_product', '=', $product->id)->get();
-        $price = $material->sum('price');
-        $data = Products::latest()->take(4)->get();
-
-        $order = new Order();
-        $order->id_user = Auth::user()->id;
-        $order->id_product = $id_product;
-        $order->price = $price;
-        $order->save();
-
-        return view('payment', compact('product', 'data', 'recipe', 'material', 'price', 'id_product'));
-    }
-
-    public function topUp_process(Request $request, $id_product)
-    {
-        $product = Products::find($id_product);
-        $recipe = Recipe::where('id_product', '=', $product->id)->first();
-        $material = Material::where('id_product', '=', $product->id)->get();
-        $price = $material->sum('price');
-        $data = Products::latest()->take(4)->get();
-
-        return view('paymentSuccess', compact('product', 'data', 'recipe', 'material', 'price', 'id_product'));
-    }
-
     public function history(Request $request)
     {
         $data = Order::where('id_user', '=', Auth::user()->id)->get();

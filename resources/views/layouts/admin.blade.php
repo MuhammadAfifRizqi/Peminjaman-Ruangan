@@ -94,12 +94,6 @@
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>{{ __('Booking') }}</span></a>
                 </li>
-                <!-- Nav Item - Category
-                <li class="nav-item {{ Nav::isRoute('category*') }}">
-                    <a class="nav-link" href="{{ route('category') }}">
-                        <i class="fas fa-fw fa-filter"></i>
-                        <span>{{ __('Category') }}</span></a>
-                </li> -->
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -157,12 +151,12 @@
                         <span>{{ __('Users') }}</span>
                     </a>
                 </li>
-            
-                
+
+
             @endif
 
-     
-            
+
+
 
 
             <!-- Divider -->
@@ -241,7 +235,7 @@
                 <div class="container-fluid">
 
                     @yield('main-content')
-                    
+
 
                 </div>
                 <!-- /.container-fluid -->

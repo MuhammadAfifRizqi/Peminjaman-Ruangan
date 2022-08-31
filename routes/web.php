@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +34,6 @@ Auth::routes(
 );
 
 Route::middleware('auth')->group(function () {
-
-    Route::get('/payment/{id_product}', 'PageController@payment')->name('payment');
-    Route::get('/success/{id_product}', 'PageController@topUp_process')->name('topUp_process');
-    Route::get('/history', 'PageController@history')->name('history');
 
     // Admin Home
     Route::get('/home', 'HomeController@index')->name('home');
@@ -78,6 +73,8 @@ Route::middleware('auth')->group(function () {
         // Booking
         Route::prefix('booking')->name('booking')->group(function () {
             Route::get('/', 'BookingController@index')->name('');
+            Route::get('/create', 'BookingController@create_view')->name('.create');
+            Route::post('/create', 'BookingController@create_process')->name('.create.process');
             Route::get('/accept/{id}', 'BookingController@accept')->name('.accept');
             Route::get('/decline/{id}', 'BookingController@decline')->name('.decline');
         });
@@ -93,15 +90,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/delete/{id}', 'UsersController@delete')->name('.delete');
         });
 
-        // Categories
-        Route::prefix('category')->name('category')->group(function () {
-            Route::get('/', 'CategoryController@index')->name('');
-            Route::get('/create', 'CategoryController@create_view')->name('.create');
-            Route::post('/create', 'CategoryController@create_process')->name('.create.process');
-            Route::get('/update/{id}', 'CategoryController@update_view')->name('.update');
-            Route::post('/update/{id}', 'CategoryController@update_process')->name('.update.process');
-            Route::get('/delete/{id}', 'CategoryController@delete')->name('.delete');
-        });
         // =================================================================
         // =========================== END ADMIN ===========================
         // =================================================================

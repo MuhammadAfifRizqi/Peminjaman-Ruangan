@@ -18,9 +18,8 @@ class CreateBookingsTable extends Migration
             $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_room');
             $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->integer('time');
             $table->string('lecturer_code');
-            $table->string('phone_number');
             $table->string('status')->default('pending');
             $table->timestamps();
 

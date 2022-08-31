@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
                 'roles' => 'admin',
                 'position' => 'staff',
                 'email' => 'admin@telkomuniversity.com',
+                'phone_number' => '08123456789',
                 'password' => 'password',
             ],
             [
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
                 'roles' => 'user',
                 'position' => 'student',
                 'email' => 'student@telkomuniversity.com',
+                'phone_number' => '08123456790',
                 'password' => 'password',
             ],
             [
@@ -45,6 +47,7 @@ class DatabaseSeeder extends Seeder
                 'roles' => 'user',
                 'position' => 'lecturer',
                 'email' => 'lecturer@telkomuniversity.com',
+                'phone_number' => '08123456791',
                 'password' => 'password',
             ],
             [
@@ -54,6 +57,7 @@ class DatabaseSeeder extends Seeder
                 'roles' => 'user',
                 'position' => 'rector',
                 'email' => 'rector@telkomuniversity.com',
+                'phone_number' => '08123456792',
                 'password' => 'password',
             ]
         ];
@@ -124,19 +128,17 @@ class DatabaseSeeder extends Seeder
                 'id_user' => '2',
                 'id_room' => '1',
                 'start_date' => now(),
-                'end_date' => now(),
+                'time' => '1',
                 'lecturer_code' => "FRI",
-                'phone_number' => '08123456789',
-                'status' => 'accept',
+                'status' => 'pending',
             ],
             [
                 'id' => '2',
                 'id_user' => '3',
                 'id_room' => '1',
                 'start_date' => now(),
-                'end_date' => now(),
+                'time' => '1',
                 'lecturer_code' => "FRI",
-                'phone_number' => '08123456789',
                 'status' => 'pending',
             ],
             [
@@ -144,9 +146,8 @@ class DatabaseSeeder extends Seeder
                 'id_user' => '4',
                 'id_room' => '2',
                 'start_date' => now(),
-                'end_date' => now(),
+                'time' => '1',
                 'lecturer_code' => "FRI",
-                'phone_number' => '08123456789',
                 'status' => 'pending',
             ]
         ];
