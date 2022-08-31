@@ -12,6 +12,10 @@
                 url: "{{ route('room') }}",
             },
             columns: [{
+                    data: 'building',
+                    name: 'building'
+                },
+                {
                     data: 'room_number',
                     name: 'room_number'
                 },
@@ -83,6 +87,7 @@
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
+                        <th>Building</th>
                         <th>Room Number</th>
                         <th>Type</th>
                         <th>Capacity</th>
