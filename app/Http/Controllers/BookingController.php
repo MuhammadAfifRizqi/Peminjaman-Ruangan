@@ -19,19 +19,23 @@ class BookingController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Booking::latest()->get();
+            $data = Booking::with('user','room.building')->latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
                     $button = '<a href="' . action('BookingController@accept', $data->id) . '" type="button" name="edit" id="' . $data->id . '" class="edit btn btn-primary btn-sm">Accept</a>';
                     $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('BookingController@decline', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"'."onclick='return confirm()'".'>Decline</a>';
                     return $button;
-                })->addColumn('user', function ($data) {
-                    return User::find($data->id_users)->name;
-                })->addColumn('room', function ($data) {
-                    return Room::find($data->id_room)->room_number;
+                })->addColumn('position', function ($data) {
+                    return $data->user->position;
+                })->addColumn('user_name', function ($data) {
+                    return $data->user->name . " " . $data->user->last_name;
+                })->addColumn('room_name', function ($data) {
+                    return $data->room->room_number;
+                })->addColumn('building', function ($data) {
+                    return $data->room->building->name;
                 })
-                ->rawColumns(['action','user','room'])
+                ->rawColumns(['action','position','user_name','room_name','building'])
                 ->make(true);
         }
 

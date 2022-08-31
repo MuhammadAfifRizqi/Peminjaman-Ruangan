@@ -16,12 +16,20 @@
                     name: 'id'
                 },
                 {
-                    data: 'user',
-                    name: 'user'
+                    data: 'position',
+                    name: 'position'
                 },
                 {
-                    data: 'room',
-                    name: 'room'
+                    data: 'user_name',
+                    name: 'user_name'
+                },
+                {
+                    data: 'room_name',
+                    name: 'room_name'
+                },
+                {
+                    data: 'building',
+                    name: 'building'
                 },
                 {
                     data: 'start_date',
@@ -95,8 +103,10 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Position</th>
                         <th>User</th>
                         <th>Room</th>
+                        <th>Building</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Lecture Code</th>

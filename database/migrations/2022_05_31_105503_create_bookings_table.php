@@ -15,7 +15,7 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_users');
+            $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_room');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
@@ -24,7 +24,7 @@ class CreateBookingsTable extends Migration
             $table->string('status')->default('pending');
             $table->timestamps();
 
-            $table->foreign('id_users')
+            $table->foreign('id_user')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
