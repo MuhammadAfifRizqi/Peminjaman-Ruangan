@@ -16,8 +16,8 @@ class ExpenseChart
     public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
         return $this->chart->pieChart()
-            ->setTitle('Pengeluaran')
+            ->setTitle('Pemakaian Gedung')
             ->addData([40, 50, 30])
-            ->setLabels(['Iklan Instagram', 'Iklan Facebook', 'Iklan Marketplace']);
+            ->setLabels(['Gedung TULT', 'Gedung B', 'Auditorium']);
     }
 }

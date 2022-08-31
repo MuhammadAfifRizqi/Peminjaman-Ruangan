@@ -17,7 +17,7 @@ class GenderChart
     {
         return $this->chart->pieChart()
             ->setTitle('Jenis Kelamin')
-            ->addData([40, 50, 30])
-            ->setLabels(['Laki-laki', 'Perempuan', 'Tidak diketahui']);
+            ->addData([20,40])
+            ->setLabels(['Laki-laki', 'Perempuan']);
     }
 }

@@ -9,7 +9,7 @@
 <header class="masthead">
     <div class="container">
         <h1>Peminjaman Ruangan</h1>
-        <a class="btn btn-danger btn-xl text-uppercase rounded" href="{{route('katalog')}}">Booking</a>
+        <a class="btn btn-danger btn-xl text-uppercase rounded" href="#">Booking</a>
     </div>
 </header>
 @endsection
