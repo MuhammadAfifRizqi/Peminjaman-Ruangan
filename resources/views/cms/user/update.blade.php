@@ -47,8 +47,20 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    <label class="form-control-label" for="last_name">{{ __('Last Name') }}<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ $data->last_name }}" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
                                     <label class="form-control-label" for="name">{{ __('Email') }}<span class="small text-danger">*</span></label>
                                     <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('email') }}" value="{{ $data->email }}" required autofocus>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="phone_number">{{ __('Phone Number') }}<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="phone_number" placeholder="{{ __('Phone Number') }}" value="{{ $data->phone_number }}" required>
                                 </div>
                             </div>
                         </div>

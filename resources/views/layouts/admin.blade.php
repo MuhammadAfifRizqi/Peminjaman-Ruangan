@@ -74,6 +74,48 @@
                     {{ __('CMS') }}
                 </div>
 
+                <!-- Nav Item - Building -->
+                <li class="nav-item {{ Nav::isRoute('building*') }}">
+                    <a class="nav-link" href="{{ route('building') }}">
+                        <i class="fas fa-fw fa-building"></i>
+                        <span>{{ __('Building') }}</span></a>
+                </li>
+
+                <!-- Nav Item - Room -->
+                <li class="nav-item {{ Nav::isRoute('room*') }}">
+                    <a class="nav-link" href="{{ route('room') }}">
+                        <i class="fas fa-fw fa-square"></i>
+                        <span>{{ __('Room') }}</span></a>
+                </li>
+
+                <!-- Nav Item - Booking -->
+                <li class="nav-item {{ Nav::isRoute('booking*') }}">
+                    <a class="nav-link" href="{{ route('booking') }}">
+                        <i class="fas fa-fw fa-list-alt"></i>
+                        <span>{{ __('Booking') }}</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    {{ __('User Management') }}
+                </div>
+
+                <!-- Nav Item - Profile -->
+                <li class="nav-item {{ Nav::isRoute('user*') }}">
+                    <a class="nav-link" href="{{ route('user') }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>{{ __('Users') }}</span>
+                    </a>
+                </li>
+
+            @else
+            <div class="sidebar-heading">
+                    {{ __('CMS') }}
+                </div>
+
                 <!-- Nav Item - Room -->
                 <li class="nav-item {{ Nav::isRoute('room*') }}">
                     <a class="nav-link" href="{{ route('room') }}">
@@ -109,7 +151,13 @@
                         <span>{{ __('Users') }}</span>
                     </a>
                 </li>
+
+
             @endif
+
+
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -187,6 +235,7 @@
                 <div class="container-fluid">
 
                     @yield('main-content')
+
 
                 </div>
                 <!-- /.container-fluid -->

@@ -9,23 +9,43 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('room') }}",
+                url: "{{ route('booking') }}",
             },
             columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'position',
+                    name: 'position'
+                },
+                {
+                    data: 'user_name',
+                    name: 'user_name'
+                },
+                {
+                    data: 'room_name',
+                    name: 'room_name'
+                },
+                {
                     data: 'building',
                     name: 'building'
                 },
                 {
-                    data: 'room_number',
-                    name: 'room_number'
+                    data: 'start_date',
+                    name: 'start_date'
                 },
                 {
-                    data: 'type',
-                    name: 'type'
+                    data: 'time',
+                    name: 'time'
                 },
                 {
-                    data: 'capacity',
-                    name: 'capacity'
+                    data: 'lecturer_code',
+                    name: 'lecturer_code'
+                },
+                {
+                    data: 'phone_number',
+                    name: 'phone_number'
                 },
                 {
                     data: 'status',
@@ -44,16 +64,16 @@
 @endpush
 
 @extends('layouts.admin')
-@section('title', 'Room')
+@section('title', 'Booking')
 
 @section('main-content')
 <!-- Page Heading -->
 
 <nav class="navbar navbar-light px-0 py-3">
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Room') }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Booking') }}</h1>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="{{ route('room.create') }}" class="btn btn-dark border-0">New Room</a>
+            <a href="{{ route('booking.create') }}" class="btn btn-dark border-0">New Booking</a>
         </li>
     </ul>
 </nav>
@@ -80,17 +100,22 @@
 <div class="row mx-1 mb-5">
     <div class="col-lg-12 order-lg-1 bg-white rounded shadow">
         <div class="my-3 d-inline-block w-100">
-            <h6 class="m-0 font-weight-bold text-danger">Rooms</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Bookings</h6>
         </div>
         <div class="card-body">
 
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
+                        <th>ID</th>
+                        <th>Position</th>
+                        <th>User</th>
+                        <th>Room</th>
                         <th>Building</th>
-                        <th>Room Number</th>
-                        <th>Type</th>
-                        <th>Capacity</th>
+                        <th>Start Date</th>
+                        <th>Time</th>
+                        <th>Lecture Code</th>
+                        <th>Phone Number</th>
                         <th>Status</th>
                         <th width="100px">Action</th>
                     </tr>

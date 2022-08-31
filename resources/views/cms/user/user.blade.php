@@ -21,6 +21,14 @@
                     name: 'email'
                 },
                 {
+                    data: 'phone_number',
+                    name: 'phone_number'
+                },
+                {
+                    data: 'position',
+                    name: 'position'
+                },
+                {
                     data: 'action',
                     name: 'action',
                     orderable: false,
@@ -92,7 +100,9 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Phone Number</th>
+                            <th>Position</th>
                             <th width="100px">Action</th>
                         </tr>
                     </thead>

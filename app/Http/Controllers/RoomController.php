@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\Building;
+use App\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use DataTables;
 
@@ -17,15 +21,18 @@ class RoomController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Room::latest()->get();
+            $data = Room::with('building')->latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
                     $button = '<a href="' . action('RoomController@update_view', $data->id) . '" type="button" name="edit" id="' . $data->id . '" class="edit btn btn-primary btn-sm">Edit</a>';
-                    $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('RoomController@delete', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"'."onclick='return confirm()'".'>Delete</a>';
+                    $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('RoomController@delete', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"' . "onclick='return confirm()'" . '>Delete</a>';
                     return $button;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('building', function ($data) {
+                    return $data->building->name;
+                })
+                ->rawColumns(['action','building'])
                 ->make(true);
         }
 
@@ -39,7 +46,8 @@ class RoomController extends Controller
      */
     public function create_view()
     {
-        return view('cms.room.create');
+        $building = Building::all();
+        return view('cms.room.create', compact('building'));
     }
 
     /**
@@ -53,6 +61,7 @@ class RoomController extends Controller
             'room_number' => 'required',
             'type' => 'required',
             'capacity' => 'required',
+            'id_building' => 'required',
             'facility' => 'required',
         ]);
 
@@ -60,6 +69,7 @@ class RoomController extends Controller
         $room->room_number = $request->room_number;
         $room->type = $request->type;
         $room->capacity = $request->capacity;
+        $room->id_building = $request->id_building;
         $room->facility = $request->facility;
         $room->status = "not_used";
         $room->save();
@@ -76,7 +86,8 @@ class RoomController extends Controller
     public function update_view($id)
     {
         $data = Room::find($id);
-        return view('cms.room.update', compact('data'));
+        $building = Building::all();
+        return view('cms.room.update', compact('data', 'building'));
     }
 
     public function update_process(Request $request, $id)
@@ -85,6 +96,7 @@ class RoomController extends Controller
             'room_number' => 'required',
             'type' => 'required',
             'capacity' => 'required',
+            'id_building' => 'required',
             'facility' => 'required',
         ]);
 
@@ -92,8 +104,17 @@ class RoomController extends Controller
         $room->room_number = $request->room_number;
         $room->type = $request->type;
         $room->capacity = $request->capacity;
+        $room->id_building = $request->id_building;
         $room->facility = $request->facility;
         $room->save();
+
+        if (isset($request->img)) {
+            $image = new Gallery();
+            $image->id_room = $id;
+            $image->image = Storage::disk('public')->put('room', $request->file('img'));
+            $image->caption = $request->caption;
+            $image->save();
+        }
 
         return redirect()->route('room')->withSuccess('Room updated successfully.');
     }
@@ -110,5 +131,24 @@ class RoomController extends Controller
         $room->delete();
 
         return redirect()->route('room')->withSuccess('Room deleted successfully.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_galeri($id)
+    {
+        $room = Gallery::find($id);
+        $room_id = $room->id_room;
+        $image_path = 'storage/' . $room->image;
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
+        $room->delete();
+
+        return redirect()->route('room.update',$room_id)->withSuccess('Room Gallery deleted successfully.');
     }
 }

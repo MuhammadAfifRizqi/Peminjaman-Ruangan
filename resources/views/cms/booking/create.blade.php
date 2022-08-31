@@ -1,9 +1,9 @@
 @extends('layouts.admin')
-@section('title', 'Create Room')
+@section('title', 'Create Booking')
 
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Create Room') }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Create Booking') }}</h1>
 
     @if (session('success'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -24,7 +24,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('room.create.process') }}" autocomplete="off" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('booking.create.process') }}" autocomplete="off" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-lg-12 order-lg-1">
@@ -37,12 +37,26 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="type">{{ __('Building') }}<span
+                                        <label class="form-control-label" for="id_user">{{ __('User') }}<span
                                                 class="small text-danger">*</span></label>
-                                        <select class="form-control" id="id_building" name="id_building">
-                                            @foreach ($building as $bd)
-                                                <option value="{{ $bd->id }}">
-                                                    {{ $bd->name }}</option>
+                                        <select class="form-control" id="id_user" name="id_user">
+                                            @foreach ($users as $us)
+                                                <option value="{{ $us->id }}">
+                                                    {{ $us->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_room">{{ __('Room') }}<span
+                                                class="small text-danger">*</span></label>
+                                        <select class="form-control" id="id_room" name="id_room">
+                                            @foreach ($rooms as $rm)
+                                                <option value="{{ $rm->id }}">
+                                                    {{ $rm->room_number }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -53,10 +67,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="room_number">{{ __('Room Number') }}<span
+                                            <label class="form-control-label" for="start_date">{{ __('Date') }}<span
                                                     class="small text-danger">*</span></label>
-                                            <input type="text" id="room_number" class="form-control" name="room_number"
-                                                value="{{ old('room_number') }}" placeholder="Example : Room 123">
+                                            <input type="datetime-local" id="start_date" class="form-control" name="start_date"
+                                                value="{{ old('start_date') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -65,10 +79,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="capacity">{{ __('Capacity') }}<span
+                                            <label class="form-control-label" for="time">{{ __('Hours') }}<span
                                                     class="small text-danger">*</span></label>
-                                            <input type="number" id="capacity" class="form-control" name="capacity"
-                                                value="{{ old('capacity') }}" placeholder="Example : 43">
+                                            <input type="number" id="time" class="form-control" name="time"
+                                                value="{{ old('time') }}" placeholder="Example : 2">
                                         </div>
                                     </div>
                                 </div>
@@ -76,21 +90,12 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="type">{{ __('Room Type') }}<span
-                                                class="small text-danger">*</span></label>
-                                        <select class="form-control" id="type" name="type">
-                                            <option value="class">Class</option>
-                                            <option value="auditorium">Auditorium</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="facility">{{ __('Room Facility') }}<span
-                                                class="small text-danger">*</span></label>
-                                        <textarea class="form-control" id="facility" name="facility" rows="5">{{ old('facility') }}</textarea>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="lecturer_code">{{ __('Lecturer Code') }}<span
+                                                    class="small text-danger">*</span></label>
+                                            <input type="text" id="lecturer_code" class="form-control" name="lecturer_code"
+                                                value="{{ old('lecturer_code') }}" placeholder="Example : 2">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

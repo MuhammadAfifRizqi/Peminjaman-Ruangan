@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
-use App\Category;
+use App\Room;
+use App\Booking;
+use App\Building;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,19 +15,49 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // ======================================================
+        // ======================== USER ========================
+        // ======================================================
+
         $user = [
             [
+                'id' => '1',
                 'name' => 'Admin',
                 'last_name' => 'Admin',
                 'roles' => 'admin',
+                'position' => 'staff',
                 'email' => 'admin@telkomuniversity.com',
+                'phone_number' => '08123456789',
                 'password' => 'password',
             ],
             [
-                'name' => 'example-customer',
-                'last_name' => 'example-customer',
-                'roles' => 'customer',
-                'email' => 'customer@telkomuniversity.com',
+                'id' => '2',
+                'name' => 'example-student',
+                'last_name' => 'example-student',
+                'roles' => 'user',
+                'position' => 'student',
+                'email' => 'student@telkomuniversity.com',
+                'phone_number' => '08123456790',
+                'password' => 'password',
+            ],
+            [
+                'id' => '3',
+                'name' => 'example-lecturer',
+                'last_name' => 'example-lecturer',
+                'roles' => 'user',
+                'position' => 'lecturer',
+                'email' => 'lecturer@telkomuniversity.com',
+                'phone_number' => '08123456791',
+                'password' => 'password',
+            ],
+            [
+                'id' => '4',
+                'name' => 'example-rector',
+                'last_name' => 'example-rector',
+                'roles' => 'user',
+                'position' => 'rector',
+                'email' => 'rector@telkomuniversity.com',
+                'phone_number' => '08123456792',
                 'password' => 'password',
             ]
         ];
@@ -34,139 +66,95 @@ class DatabaseSeeder extends Seeder
             User::create($value);
         }
 
-        $category = [
+        // ======================================================
+        // ======================= BUILDING =====================
+        // ======================================================
+
+        $buildings = [
             [
-                'name' => 'Rice',
-                'photo' => 'null',
+                'id' => '1',
+                'name' => 'TULT',
+                'image' => 'Please Update!',
+                'facility' => 'Please Update!',
             ],
             [
-                'name' => 'Meatballs',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Soto',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Noodle',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Satay',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Seafood',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Chicken',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Duck',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Beef',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Pork',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Martabak',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Drink',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Food',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Coffee',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Dessert',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Bread',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Cake',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Boba',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Snack',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Sweet Dish',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Italian Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Japanese Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Indian Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Korean Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Chinese Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Thai Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Western  Cuisine',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Fried Chicken',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Burger',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Pizza',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Pasta',
-                'photo' => 'null',
-            ],
-            [
-                'name' => 'Others',
-                'photo' => 'null',
-            ],
+                'id' => '2',
+                'name' => 'GKU',
+                'image' => 'Please Update!',
+                'facility' => 'Please Update!',
+            ]
         ];
 
-        foreach ($category as $key => $value) {
-            Category::create($value);
+        foreach ($buildings as $key => $value) {
+            Building::create($value);
         }
+
+        // ======================================================
+        // ======================== ROOM ========================
+        // ======================================================
+
+        $room = [
+            [
+                'id' => '1',
+                'id_building' => '1',
+                'room_number' => '101',
+                'type' => 'class',
+                'capacity' => '10',
+                'facility' => 'Excepteur duis accus',
+                'status' => 'not_used',
+            ],
+            [
+                'id' => '2',
+                'id_building' => '2',
+                'room_number' => '102',
+                'type' => 'class',
+                'capacity' => '5',
+                'facility' => 'GG',
+                'status' => 'not_used',
+            ]
+        ];
+
+        foreach ($room as $key => $value) {
+            Room::create($value);
+        }
+
+        // ======================================================
+        // ======================= BOOKING ======================
+        // ======================================================
+
+        $booking = [
+            [
+                'id' => '1',
+                'id_user' => '2',
+                'id_room' => '1',
+                'start_date' => now(),
+                'time' => '1',
+                'lecturer_code' => "FRI",
+                'status' => 'pending',
+            ],
+            [
+                'id' => '2',
+                'id_user' => '3',
+                'id_room' => '1',
+                'start_date' => now(),
+                'time' => '1',
+                'lecturer_code' => "FRI",
+                'status' => 'pending',
+            ],
+            [
+                'id' => '3',
+                'id_user' => '4',
+                'id_room' => '2',
+                'start_date' => now(),
+                'time' => '1',
+                'lecturer_code' => "FRI",
+                'status' => 'pending',
+            ]
+        ];
+
+        foreach ($booking as $key => $value) {
+            Booking::create($value);
+        }
+
     }
 }

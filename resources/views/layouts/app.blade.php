@@ -49,9 +49,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('katalog') }}">Catalog</a></li>
+                    {{--  <li class="nav-item"><a class="nav-link" href="{{ route('katalog') }}">Catalog</a></li>  --}}
                     @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ route('history') }}">History</a>
+                        {{--  <li class="nav-item"><a class="nav-link" href="{{ route('history') }}">History</a>  --}}
                         </li>
                         @if (Auth::user()->roles == 'admin')
                             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Dashboard</a>
@@ -100,8 +100,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; Telkom University 2021</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="#"><i
-                            class="fab fa-instagram"></i></a>
+                    <!-- <a class="btn btn-dark btn-social mx-2" href="#"><i
+                            class="fab fa-instagram"></i></a> -->
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
