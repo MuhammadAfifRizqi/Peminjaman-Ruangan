@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\Room;
 use App\Booking;
+use App\Building;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // ======================================================
+        // ======================== USER ========================
+        // ======================================================
+
         $user = [
             [
                 'id' => '1',
@@ -37,9 +42,37 @@ class DatabaseSeeder extends Seeder
             User::create($value);
         }
 
+        // ======================================================
+        // ======================= BUILDING =====================
+        // ======================================================
+
+        $buildings = [
+            [
+                'id' => '1',
+                'name' => 'TULT',
+                'image' => 'Please Update!',
+                'facility' => 'Please Update!',
+            ],
+            [
+                'id' => '2',
+                'name' => 'GKU',
+                'image' => 'Please Update!',
+                'facility' => 'Please Update!',
+            ]
+        ];
+
+        foreach ($buildings as $key => $value) {
+            Building::create($value);
+        }
+
+        // ======================================================
+        // ======================== ROOM ========================
+        // ======================================================
+
         $room = [
             [
                 'id' => '1',
+                'id_building' => '1',
                 'room_number' => '101',
                 'type' => 'class',
                 'capacity' => '10',
@@ -48,6 +81,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => '2',
+                'id_building' => '2',
                 'room_number' => '102',
                 'type' => 'class',
                 'capacity' => '5',
@@ -59,6 +93,10 @@ class DatabaseSeeder extends Seeder
         foreach ($room as $key => $value) {
             Room::create($value);
         }
+
+        // ======================================================
+        // ======================= BOOKING ======================
+        // ======================================================
 
         $booking = [
             [

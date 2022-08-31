@@ -74,10 +74,17 @@
                     {{ __('CMS') }}
                 </div>
 
+                <!-- Nav Item - Building -->
+                <li class="nav-item {{ Nav::isRoute('building*') }}">
+                    <a class="nav-link" href="{{ route('building') }}">
+                        <i class="fas fa-fw fa-building"></i>
+                        <span>{{ __('Building') }}</span></a>
+                </li>
+
                 <!-- Nav Item - Room -->
                 <li class="nav-item {{ Nav::isRoute('room*') }}">
                     <a class="nav-link" href="{{ route('room') }}">
-                        <i class="fas fa-fw fa-box"></i>
+                        <i class="fas fa-fw fa-square"></i>
                         <span>{{ __('Room') }}</span></a>
                 </li>
 
