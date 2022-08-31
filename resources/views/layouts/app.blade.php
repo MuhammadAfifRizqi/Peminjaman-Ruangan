@@ -48,10 +48,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>
-                    {{--  <li class="nav-item"><a class="nav-link" href="{{ route('katalog') }}">Catalog</a></li>  --}}
+                    <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>                   
                     @auth
-                        {{--  <li class="nav-item"><a class="nav-link" href="{{ route('history') }}">History</a>  --}}
                         </li>
                         @if (Auth::user()->roles == 'admin')
                             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Dashboard</a>

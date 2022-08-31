@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Route;
 // ============================================================================
 
 Route::get('/', 'PageController@welcome')->name('welcome');
-Route::get('/catalog', 'PageController@katalog')->name('katalog');
-Route::get('/detail-produk/{id_product}', 'PageController@detailProduk')->name('detailProduk');
-
 
 // ============================================================================
 // ================================ L O G I N =================================

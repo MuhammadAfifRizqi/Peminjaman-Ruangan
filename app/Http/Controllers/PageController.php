@@ -24,45 +24,4 @@ class PageController extends Controller
     {
         return view('welcome');
     }
-
-    public function katalog(Request $request, $search = "")
-    {
-        $room = Room::paginate(8);
-        $category = Category::all();
-        if (isset($request->category)) {
-            $room = Room::where('id_category', '=', $request->category)->paginate(8)->get();
-        } else {
-            if (isset($request->search)) {
-                $search = $request->search;
-            }
-            $room = Room::where('room_number', 'LIKE', '%' . $search . '%')
-                ->orWhere('facility', 'LIKE', '%' . $search . '%')
-                ->paginate(8);
-        }
-        return view('katalog', compact('room', 'category', 'search'));
-    }
-
-    public function detailProduk(Request $request, $id_product)
-    {
-        // adding view
-        $view = new View();
-        $view->id_product = $id_product;
-        $view->save();
-
-        $product = Products::find($id_product);
-        $recipe = Recipe::where('id_product', '=', $product->id)->first();
-        $material = Material::where('id_product', '=', $product->id)->get();
-        $price = $material->sum('price');
-        $data = Products::latest()->take(4)->get();
-        return view('detailProduk', compact('product', 'data', 'recipe', 'material', 'price'));
-    }
-
-    public function history(Request $request)
-    {
-        $data = Order::where('id_user', '=', Auth::user()->id)->get();
-        foreach($data as $d){
-            $d->{'product_name'} = Products::find($d->id_product)->title;
-        }
-        return view('history', compact('data'));
-    }
 }
