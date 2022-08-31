@@ -53,14 +53,20 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            'position' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
         ]);
 
         $user = new User();
         $user->name = $request->name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->position = $request->position;
+        $user->phone_number = $request->phone_number;
 
         $user->save();
 
@@ -85,11 +91,15 @@ class UsersController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'min:11', 'email', Rule::unique('users', 'email')->ignore($user)],
+            'phone_number' => ['required', 'string', 'max:255'],
         ]);
 
         $user->name = $request->name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
         $user->save();
 
         return redirect()->route('user')->withSuccess('User updated successfully.');

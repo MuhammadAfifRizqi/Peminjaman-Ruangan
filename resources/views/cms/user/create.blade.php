@@ -43,18 +43,28 @@
                                     <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required autofocus>
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-control-label" for="last_name">{{ __('Last Name') }}<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" required>
+                                </div>
+                                <div class="form-group">
                                     <label class="form-control-label" for="email">{{ __('E-mail') }}<span class="small text-danger">*</span></label>
                                     <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-mail') }}" value="{{ old('email') }}" required>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label class="form-control-label" for="phone_number">{{ __('Phone Number') }}<span class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="phone_number" placeholder="{{ __('Phone Number') }}" value="{{ old('phone_number') }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="position">{{ __('Position') }}<span class="small text-danger">*</span></label>
+                                    <select class="form-control" id="position" name="position" required>
+                                        <option value="student">Student</option>
+                                        <option value="lecturer">Lecturer</option>
+                                        <option value="rector">Rector</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="password">{{ __('Password') }}<span class="small text-danger">*</span></label>
                                     <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-control-label" for="password">{{ __('Confirmation Password') }}<span class="small text-danger">*</span></label>
-                                    <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
                                 </div>
                             </div>
                         </div>
