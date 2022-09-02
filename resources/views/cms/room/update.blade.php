@@ -81,6 +81,8 @@
                                             </option>
                                             <option value="auditorium"
                                                 {{ $data->type === 'auditorium' ? 'selected' : '' }}>Auditorium</option>
+                                            <option value="laboratory"
+                                                {{ $data->type === 'laboratory' ? 'selected' : '' }}>Laboratory</option>
                                         </select>
                                     </div>
                                 </div>

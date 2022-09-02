@@ -81,6 +81,7 @@
                                         <select class="form-control" id="type" name="type">
                                             <option value="class">Class</option>
                                             <option value="auditorium">Auditorium</option>
+                                            <option value="laboratory">Laboratory</option>
                                         </select>
                                     </div>
                                 </div>
