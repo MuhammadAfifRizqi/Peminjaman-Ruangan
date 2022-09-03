@@ -20,6 +20,7 @@ class CreateBookingsTable extends Migration
             $table->dateTime('start_date');
             $table->integer('time');
             $table->string('lecturer_code');
+            $table->text('used');
             $table->string('status')->default('pending');
             $table->timestamps();
 

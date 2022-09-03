@@ -130,6 +130,7 @@ class DatabaseSeeder extends Seeder
                 'start_date' => now(),
                 'time' => '1',
                 'lecturer_code' => "FRI",
+                'used' => "Kelas pengganti",
                 'status' => 'pending',
             ],
             [
@@ -139,6 +140,7 @@ class DatabaseSeeder extends Seeder
                 'start_date' => now(),
                 'time' => '1',
                 'lecturer_code' => "FRI",
+                'used' => "Kelas pengganti dua",
                 'status' => 'pending',
             ],
             [
@@ -148,6 +150,7 @@ class DatabaseSeeder extends Seeder
                 'start_date' => now(),
                 'time' => '1',
                 'lecturer_code' => "FRI",
+                'used' => "Rapat UKM",
                 'status' => 'pending',
             ]
         ];

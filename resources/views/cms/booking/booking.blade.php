@@ -44,6 +44,10 @@
                     name: 'lecturer_code'
                 },
                 {
+                    data: 'used',
+                    name: 'used'
+                },
+                {
                     data: 'phone_number',
                     name: 'phone_number'
                 },
@@ -115,6 +119,7 @@
                         <th>Start Date</th>
                         <th>Time</th>
                         <th>Lecture Code</th>
+                        <th>Used for</th>
                         <th>Phone Number</th>
                         <th>Status</th>
                         <th width="100px">Action</th>

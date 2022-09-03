@@ -94,7 +94,19 @@
                                             <label class="form-control-label" for="lecturer_code">{{ __('Lecturer Code') }}<span
                                                     class="small text-danger">*</span></label>
                                             <input type="text" id="lecturer_code" class="form-control" name="lecturer_code"
-                                                value="{{ old('lecturer_code') }}" placeholder="Example : 2">
+                                                value="{{ old('lecturer_code') }}" placeholder="Example : RAS">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="used">{{ __('Used') }}<span
+                                                    class="small text-danger">*</span></label>
+                                            <textarea class="form-control" id="used" name="used" rows="3"
+                                                placeholder="Example : Kelas">{{ old('used') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
