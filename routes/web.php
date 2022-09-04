@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // ============================================================================
 
 Route::get('/', 'PageController@welcome')->name('welcome');
-
+Route::get('/homestudent', 'HomeController@student')->name('homestudent');
 // ============================================================================
 // ================================ L O G I N =================================
 // ============================================================================
@@ -31,6 +31,24 @@ Auth::routes(
 );
 
 Route::middleware('auth')->group(function () {
+    Route::prefix('booking-student')->name('bookingStudent')->group(function () {
+        Route::get('/', 'BookingController@index')->name('');
+        Route::get('/create', 'BookingController@create_view')->name('.create');
+        Route::post('/create', 'BookingController@create_process')->name('.create.process');
+        Route::get('/accept/{id}', 'BookingController@accept')->name('.accept');
+        Route::get('/decline/{id}', 'BookingController@decline')->name('.decline');
+    });
+
+    
+
+
+    //=============================================================
+    //====================== USE ==================================
+    //=============================================================
+   
+
+   
+   
 
     // Admin Home
     Route::get('/home', 'HomeController@index')->name('home');
@@ -39,6 +57,7 @@ Route::middleware('auth')->group(function () {
     // ========================== ADMIN ===========================
     // ============================================================
     Route::prefix('admin')->middleware('admin')->group(function () {
+
 
 
         // Store
@@ -93,3 +112,4 @@ Route::middleware('auth')->group(function () {
         // =================================================================
     });
 });
+

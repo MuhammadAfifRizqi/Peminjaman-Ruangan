@@ -93,7 +93,7 @@
                     <a class="nav-link" href="{{ route('booking') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>{{ __('Booking') }}</span></a>
-                </li>
+                </li> 
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -116,40 +116,11 @@
                     {{ __('CMS') }}
                 </div>
 
-                <!-- Nav Item - Room -->
-                <li class="nav-item {{ Nav::isRoute('room*') }}">
-                    <a class="nav-link" href="{{ route('room') }}">
-                        <i class="fas fa-fw fa-box"></i>
-                        <span>{{ __('Room') }}</span></a>
-                </li>
-
                 <!-- Nav Item - Booking -->
                 <li class="nav-item {{ Nav::isRoute('booking*') }}">
-                    <a class="nav-link" href="{{ route('booking') }}">
+                    <a class="nav-link" href="{{ route('bookingStudent') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>{{ __('Booking') }}</span></a>
-                </li>
-                <!-- Nav Item - Category
-                <li class="nav-item {{ Nav::isRoute('category*') }}">
-                    <a class="nav-link" href="{{ route('category') }}">
-                        <i class="fas fa-fw fa-filter"></i>
-                        <span>{{ __('Category') }}</span></a>
-                </li> -->
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    {{ __('User Management') }}
-                </div>
-
-                <!-- Nav Item - Profile -->
-                <li class="nav-item {{ Nav::isRoute('user*') }}">
-                    <a class="nav-link" href="{{ route('user') }}">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>{{ __('Users') }}</span>
-                    </a>
                 </li>
 
 
