@@ -32,8 +32,8 @@
                     name: 'building'
                 },
                 {
-                    data: 'start_date',
-                    name: 'start_date'
+                    data: 'date',
+                    name: 'date'
                 },
                 {
                     data: 'time',

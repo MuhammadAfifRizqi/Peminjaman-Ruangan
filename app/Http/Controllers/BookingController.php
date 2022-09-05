@@ -66,7 +66,7 @@ class BookingController extends Controller
         $request->validate([
             'id_user' => 'required',
             'id_room' => 'required',
-            'start_date' => 'required',
+            'date' => 'required',
             'time' => 'required',
             'lecturer_code' => 'required',
         ]);
@@ -74,7 +74,7 @@ class BookingController extends Controller
         $booking = new Booking();
         $booking->id_user = $request->id_user;
         $booking->id_room = $request->id_room;
-        $booking->start_date = $request->start_date;
+        $booking->date = $request->date;
         $booking->time = $request->time;
         $booking->lecturer_code = $request->lecturer_code;
         $booking->status = "pending";

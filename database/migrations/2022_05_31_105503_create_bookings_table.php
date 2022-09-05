@@ -17,7 +17,7 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_room');
-            $table->dateTime('start_date');
+            $table->dateTime('date');
             $table->integer('time');
             $table->string('lecturer_code');
             $table->text('used');

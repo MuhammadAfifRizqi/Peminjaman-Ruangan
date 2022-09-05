@@ -67,10 +67,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="start_date">{{ __('Date') }}<span
+                                            <label class="form-control-label" for="date">{{ __('Date') }}<span
                                                     class="small text-danger">*</span></label>
-                                            <input type="datetime-local" id="start_date" class="form-control" name="start_date"
-                                                value="{{ old('start_date') }}">
+                                            <input type="datetime-local" id="date" class="form-control" name="date"
+                                                value="{{ old('date') }}">
                                         </div>
                                     </div>
                                 </div>
