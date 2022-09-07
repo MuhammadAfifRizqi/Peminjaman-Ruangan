@@ -113,10 +113,10 @@ class UsersController extends Controller
      */
     public function delete($id)
     {
-        $category = User::find($id);
-        $category->delete();
+        $user = User::find($id);
+        $user->delete();
 
-        return redirect()->route('user');
+        return redirect()->route('user')->withSuccess('User deleted successfully.');
     }
 
     public function change_password(Request $request,$id) {

@@ -69,6 +69,7 @@ class BookingController extends Controller
             'date' => 'required',
             'time' => 'required',
             'lecturer_code' => 'required',
+            'used' => 'required',
         ]);
 
         $booking = new Booking();
@@ -77,6 +78,7 @@ class BookingController extends Controller
         $booking->date = $request->date;
         $booking->time = $request->time;
         $booking->lecturer_code = $request->lecturer_code;
+        $booking->used = $request->used;
         $booking->status = "pending";
         $booking->save();
 

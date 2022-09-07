@@ -28,6 +28,10 @@
                     name: 'capacity'
                 },
                 {
+                    data: 'facility',
+                    name: 'facility'
+                },
+                {
                     data: 'status',
                     name: 'status'
                 },
@@ -91,6 +95,7 @@
                         <th>Room Number</th>
                         <th>Type</th>
                         <th>Capacity</th>
+                        <th>Facility</th>
                         <th>Status</th>
                         <th width="100px">Action</th>
                     </tr>
