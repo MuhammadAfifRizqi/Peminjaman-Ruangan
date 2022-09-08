@@ -9,7 +9,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('booking') }}",
+                url: "{{ route('bookingStudent') }}",
             },
             columns: [{
                     data: 'id',
@@ -51,19 +51,13 @@
                     data: 'status',
                     name: 'status'
                 },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                },
             ]
         });
     });
 </script>
 @endpush
 
-@extends('layouts.admin')
+@extends('layouts.student')
 @section('title', 'Booking')
 
 @section('main-content')
@@ -73,7 +67,7 @@
     <h1 class="h3 mb-4 text-gray-800">{{ __('Booking') }}</h1>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="{{ route('booking.create') }}" class="btn btn-dark border-0">New Booking</a>
+            <a href="{{ route('bookingStudent.create') }}" class="btn btn-dark border-0">New Booking</a>
         </li>
     </ul>
 </nav>
@@ -117,7 +111,6 @@
                         <th>Lecture Code</th>
                         <th>Phone Number</th>
                         <th>Status</th>
-                        <th width="100px">Action</th>
                     </tr>
                 </thead>
                 <tbody>

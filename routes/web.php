@@ -40,12 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@student')->name('home');
 
     // User Booking
-    Route::prefix('booking-student')->name('bookingStudent')->group(function () {
-        Route::get('/', 'BookingController@index')->name('');
-        Route::get('/create', 'BookingController@create_view')->name('.create');
-        Route::post('/create', 'BookingController@create_process')->name('.create.process');
-        Route::get('/accept/{id}', 'BookingController@accept')->name('.accept');
-        Route::get('/decline/{id}', 'BookingController@decline')->name('.decline');
+    Route::prefix('booking')->name('bookingStudent')->group(function () {
+        Route::get('/', 'StudentBookingController@index')->name('');
+        Route::get('/create', 'StudentBookingController@create_view')->name('.create');
+        Route::post('/create', 'StudentBookingController@create_process')->name('.create.process');
     });
 
     //========================================================================

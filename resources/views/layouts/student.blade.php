@@ -64,16 +64,20 @@
                     <i class="fas fa-fw fa-home"></i>
                     <span>{{ __('Home') }}</span></a>
             </li>
-            <div class="sidebar-heading">
-                    {{ __('Booking') }}
-                </div>
 
-                <!-- Nav Item - Booking -->
-                <li class="nav-item {{ Nav::isRoute('booking*') }}">
-                    <a class="nav-link" href="{{ route('bookingStudent') }}">
-                        <i class="fas fa-fw fa-list-alt"></i>
-                        <span>{{ __('Booking') }}</span></a>
-                </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <div class="sidebar-heading">
+                {{ __('Booking') }}
+            </div>
+
+            <!-- Nav Item - Booking -->
+            <li class="nav-item {{ Nav::isRoute('booking*') }}">
+                <a class="nav-link" href="{{ route('bookingStudent') }}">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>{{ __('Booking') }}</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
