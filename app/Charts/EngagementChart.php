@@ -3,6 +3,8 @@
 namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use Carbon\Carbon;
+use App\Booking;
 
 class EngagementChart
 {
@@ -15,11 +17,27 @@ class EngagementChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\AreaChart
     {
+        $bookings = [];
+        $bookings_name = [];
+
+        for ($day = 0; $day < 7; $day++) {
+            $date = Carbon::now()->subDay($day);
+
+            if ($day == 0) {
+                $bookings_temp = Booking::whereDay('created_at', '>=', $date)->count();
+            } else {
+                $bookings_temp = Booking::whereDay('created_at', $date->day)->count();
+            }
+
+            array_push($bookings, $bookings_temp);
+            array_push($bookings_name, $date->format('l'));
+        }
+
+        $bookings = array_reverse($bookings);
+
         return $this->chart->areaChart()
-            ->setTitle('Sales during 2021.')
-            ->setSubtitle('Physical sales vs Digital sales.')
-            ->addData('Physical sales', [40, 93, 35, 42, 18, 82])
-            ->addData('Digital sales', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+            ->setTitle('Last 7 Days Booking.')
+            ->addData('Total Booking', $bookings)
+            ->setXAxis($bookings_name);
     }
 }
