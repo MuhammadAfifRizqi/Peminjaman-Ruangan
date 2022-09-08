@@ -15,7 +15,7 @@
 @endpush
 @extends('layouts.admin')
 
-@section('title', 'Home')
+@section('title', 'Admin Home')
 
 @section('main-content')
 @if (\Session::has('error'))

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Symfony\Component\HttpFoundation\Request;
 
 class LoginController extends Controller
 {
@@ -42,5 +43,14 @@ class LoginController extends Controller
     {
         session()->flash('success', 'You are logged in!');
         return $this->redirectTo;
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->roles == "admin") {
+            return redirect('/admin/home');
+        }
+
+        return redirect('/home');
     }
 }

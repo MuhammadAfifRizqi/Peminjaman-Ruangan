@@ -38,9 +38,10 @@ class HomeController extends Controller
         $chartDonut = $chartStore->build();
         $chartBar = $chartProduct->build();
         return view('cms.home', compact('chartDonut', 'chartBar', 'chartArea', 'chartExpense', 'chartTransaction'));
-   
+
     }
+
     public function student(){
-        return view('cms.homestudent');
+        return view('student.home');
     }
 }

@@ -64,53 +64,16 @@
                     <i class="fas fa-fw fa-home"></i>
                     <span>{{ __('Home') }}</span></a>
             </li>
-
-            @if (Auth::user() && Auth::user()->roles == 'admin')
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    {{ __('CMS') }}
+            <div class="sidebar-heading">
+                    {{ __('Booking') }}
                 </div>
-
-                <!-- Nav Item - Building -->
-                <li class="nav-item {{ Nav::isRoute('building*') }}">
-                    <a class="nav-link" href="{{ route('building') }}">
-                        <i class="fas fa-fw fa-building"></i>
-                        <span>{{ __('Building') }}</span></a>
-                </li>
-
-                <!-- Nav Item - Room -->
-                <li class="nav-item {{ Nav::isRoute('room*') }}">
-                    <a class="nav-link" href="{{ route('room') }}">
-                        <i class="fas fa-fw fa-square"></i>
-                        <span>{{ __('Room') }}</span></a>
-                </li>
 
                 <!-- Nav Item - Booking -->
                 <li class="nav-item {{ Nav::isRoute('booking*') }}">
-                    <a class="nav-link" href="{{ route('booking') }}">
+                    <a class="nav-link" href="{{ route('bookingStudent') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>{{ __('Booking') }}</span></a>
                 </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    {{ __('User Management') }}
-                </div>
-
-                <!-- Nav Item - Profile -->
-                <li class="nav-item {{ Nav::isRoute('user*') }}">
-                    <a class="nav-link" href="{{ route('user') }}">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>{{ __('Users') }}</span>
-                    </a>
-                </li>
-            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -167,8 +130,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Logout') }}
                                 </a>
