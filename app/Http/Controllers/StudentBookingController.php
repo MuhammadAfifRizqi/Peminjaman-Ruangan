@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Building;
 use App\User;
 use App\Room;
 use Illuminate\Http\Request;
@@ -46,9 +47,9 @@ class StudentBookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create_view()
+    public function create_view($id)
     {
-        $rooms = Room::all();
+        $rooms = Room::where('id_building', $id)->get();
         return view('student.booking.create', compact('rooms'));
     }
 
@@ -77,7 +78,7 @@ class StudentBookingController extends Controller
         $booking->status = "pending";
         $booking->save();
 
-        return redirect()->route('bookingStudent')->withSuccess('Booking created successfully.');
+        return redirect()->route('history')->withSuccess('Booking created successfully.');
     }
 
 }

@@ -9,7 +9,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('bookingStudent') }}",
+                url: "{{ route('history') }}",
             },
             columns: [{
                     data: 'id',
@@ -58,16 +58,16 @@
 @endpush
 
 @extends('layouts.student')
-@section('title', 'Booking')
+@section('title', 'History')
 
 @section('main-content')
 <!-- Page Heading -->
 
 <nav class="navbar navbar-light px-0 py-3">
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Booking') }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('History') }}</h1>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="{{ route('bookingStudent.create') }}" class="btn btn-dark border-0">New Booking</a>
+            <a href="{{ route('home') }}" class="btn btn-dark border-0">New Booking</a>
         </li>
     </ul>
 </nav>
@@ -94,7 +94,7 @@
 <div class="row mx-1 mb-5">
     <div class="col-lg-12 order-lg-1 bg-white rounded shadow">
         <div class="my-3 d-inline-block w-100">
-            <h6 class="m-0 font-weight-bold text-danger">Bookings</h6>
+            <h6 class="m-0 font-weight-bold text-danger">History</h6>
         </div>
         <div class="card-body">
 

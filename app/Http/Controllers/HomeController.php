@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Building;
 use App\Charts\AgeChart;
 use App\Charts\EngagementChart;
 use App\Charts\ExpenseChart;
@@ -51,6 +52,7 @@ class HomeController extends Controller
         }
 
         // user only
-        return view('student.home');
+        $buildings = Building::all();
+        return view('student.home', compact('buildings'));
     }
 }

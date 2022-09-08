@@ -69,14 +69,14 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-heading">
-                {{ __('Booking') }}
+                {{ __('User') }}
             </div>
 
             <!-- Nav Item - Booking -->
-            <li class="nav-item {{ Nav::isRoute('booking*') }}">
-                <a class="nav-link" href="{{ route('bookingStudent') }}">
+            <li class="nav-item {{ Nav::isRoute('history*') }}">
+                <a class="nav-link" href="{{ route('history') }}">
                     <i class="fas fa-fw fa-list-alt"></i>
-                    <span>{{ __('Booking') }}</span></a>
+                    <span>{{ __('History') }}</span></a>
             </li>
 
             <!-- Divider -->

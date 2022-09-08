@@ -39,10 +39,14 @@ Route::middleware('auth')->group(function () {
     // User Home
     Route::get('/home', 'HomeController@student')->name('home');
 
+    // User History
+    Route::prefix('history')->name('history')->group(function () {
+        Route::get('/', 'StudentBookingController@index')->name('');
+    });
+
     // User Booking
     Route::prefix('booking')->name('bookingStudent')->group(function () {
-        Route::get('/', 'StudentBookingController@index')->name('');
-        Route::get('/create', 'StudentBookingController@create_view')->name('.create');
+        Route::get('/create/{id}', 'StudentBookingController@create_view')->name('.create');
         Route::post('/create', 'StudentBookingController@create_process')->name('.create.process');
     });
 
