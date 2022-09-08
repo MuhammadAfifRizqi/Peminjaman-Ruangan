@@ -12,6 +12,7 @@ use App\Charts\MonthlyStoreChart;
 use App\Charts\MonthlyUsersChart;
 use App\Charts\TransactionChart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -42,6 +43,14 @@ class HomeController extends Controller
     }
 
     public function student(){
+        // if admin access will redirected to admin home
+        if(Auth::user()->roles == "admin"){
+            return redirect(route(
+                'admin.home'
+            ));
+        }
+
+        // user only
         return view('student.home');
     }
 }
