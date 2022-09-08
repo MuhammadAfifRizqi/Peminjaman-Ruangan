@@ -88,6 +88,10 @@ Route::middleware('auth')->group(function () {
         // Booking
         Route::prefix('booking')->name('booking')->group(function () {
             Route::get('/', 'BookingController@index')->name('');
+            Route::get('/pending', 'BookingController@index_pending')->name('.status-pending');
+            Route::get('/accept', 'BookingController@index_accept')->name('.status-accept');
+            Route::get('/denied', 'BookingController@index_denied')->name('.status-denied');
+
             Route::get('/create', 'BookingController@create_view')->name('.create');
             Route::post('/create', 'BookingController@create_process')->name('.create.process');
             Route::get('/accept/{id}', 'BookingController@accept')->name('.accept');

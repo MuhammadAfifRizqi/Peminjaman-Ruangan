@@ -11,20 +11,25 @@ use DataTables;
 
 class BookingController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
+        return view('cms.booking.booking');
+    }
+
+    public function index_pending(Request $request)
+    {
         if ($request->ajax()) {
-            $data = Booking::with('user','room.building')->latest()->get();
+            $data = Booking::with('user', 'room.building')->where('status', 'pending')->latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
                     $button = '<a href="' . action('BookingController@accept', $data->id) . '" type="button" name="edit" id="' . $data->id . '" class="edit btn btn-primary btn-sm">Accept</a>';
-                    $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('BookingController@decline', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"'."onclick='return confirm()'".'>Decline</a>';
+                    $button .= '&nbsp;&nbsp;&nbsp;<a href="' . action('BookingController@decline', $data->id) . '" type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm"' . "onclick='return confirm()'" . '>Decline</a>';
                     return $button;
                 })->addColumn('phone_number', function ($data) {
                     return $data->user->phone_number;
@@ -37,11 +42,53 @@ class BookingController extends Controller
                 })->addColumn('building', function ($data) {
                     return $data->room->building->name;
                 })
-                ->rawColumns(['action','position','user_name','room_name','building','phone_number'])
+                ->rawColumns(['action', 'position', 'user_name', 'room_name', 'building', 'phone_number'])
                 ->make(true);
         }
+    }
 
-        return view('cms.booking.booking');
+    public function index_accept(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Booking::with('user', 'room.building')->where('status', 'accept')->latest()->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('phone_number', function ($data) {
+                    return $data->user->phone_number;
+                })->addColumn('position', function ($data) {
+                    return $data->user->position;
+                })->addColumn('user_name', function ($data) {
+                    return $data->user->name . " " . $data->user->last_name;
+                })->addColumn('room_name', function ($data) {
+                    return $data->room->room_number;
+                })->addColumn('building', function ($data) {
+                    return $data->room->building->name;
+                })
+                ->rawColumns(['action', 'position', 'user_name', 'room_name', 'building', 'phone_number'])
+                ->make(true);
+        }
+    }
+
+    public function index_denied(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Booking::with('user', 'room.building')->where('status', 'decline')->latest()->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('phone_number', function ($data) {
+                    return $data->user->phone_number;
+                })->addColumn('position', function ($data) {
+                    return $data->user->position;
+                })->addColumn('user_name', function ($data) {
+                    return $data->user->name . " " . $data->user->last_name;
+                })->addColumn('room_name', function ($data) {
+                    return $data->room->room_number;
+                })->addColumn('building', function ($data) {
+                    return $data->room->building->name;
+                })
+                ->rawColumns(['action', 'position', 'user_name', 'room_name', 'building', 'phone_number'])
+                ->make(true);
+        }
     }
 
     /**
@@ -53,7 +100,7 @@ class BookingController extends Controller
     {
         $users = User::all();
         $rooms = Room::all();
-        return view('cms.booking.create', compact('users','rooms'));
+        return view('cms.booking.create', compact('users', 'rooms'));
     }
 
     // /**
@@ -102,8 +149,4 @@ class BookingController extends Controller
 
         return redirect()->route('booking')->withSuccess('Booking declined!');
     }
-
-
 }
-
-

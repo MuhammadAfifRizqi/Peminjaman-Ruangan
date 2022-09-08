@@ -5,11 +5,11 @@
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.data-table').DataTable({
+        $('.data-table-pending').DataTable({
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('booking') }}",
+                url: "{{ route('booking.status-pending') }}",
             },
             columns: [{
                     data: 'id',
@@ -52,14 +52,106 @@
                     name: 'phone_number'
                 },
                 {
-                    data: 'status',
-                    name: 'status'
-                },
-                {
                     data: 'action',
                     name: 'action',
                     orderable: false,
                     searchable: false,
+                },
+            ]
+        });
+        $('.data-table-accept').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('booking.status-accept') }}",
+            },
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'position',
+                    name: 'position'
+                },
+                {
+                    data: 'user_name',
+                    name: 'user_name'
+                },
+                {
+                    data: 'room_name',
+                    name: 'room_name'
+                },
+                {
+                    data: 'building',
+                    name: 'building'
+                },
+                {
+                    data: 'date',
+                    name: 'date'
+                },
+                {
+                    data: 'time',
+                    name: 'time'
+                },
+                {
+                    data: 'lecturer_code',
+                    name: 'lecturer_code'
+                },
+                {
+                    data: 'used',
+                    name: 'used'
+                },
+                {
+                    data: 'phone_number',
+                    name: 'phone_number'
+                },
+            ]
+        });
+        $('.data-table-denied').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('booking.status-denied') }}",
+            },
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'position',
+                    name: 'position'
+                },
+                {
+                    data: 'user_name',
+                    name: 'user_name'
+                },
+                {
+                    data: 'room_name',
+                    name: 'room_name'
+                },
+                {
+                    data: 'building',
+                    name: 'building'
+                },
+                {
+                    data: 'date',
+                    name: 'date'
+                },
+                {
+                    data: 'time',
+                    name: 'time'
+                },
+                {
+                    data: 'lecturer_code',
+                    name: 'lecturer_code'
+                },
+                {
+                    data: 'used',
+                    name: 'used'
+                },
+                {
+                    data: 'phone_number',
+                    name: 'phone_number'
                 },
             ]
         });
@@ -104,11 +196,11 @@
 <div class="row mx-1 mb-5">
     <div class="col-lg-12 order-lg-1 bg-white rounded shadow">
         <div class="my-3 d-inline-block w-100">
-            <h6 class="m-0 font-weight-bold text-danger">Bookings</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Pending</h6>
         </div>
         <div class="card-body">
 
-            <table class="table table-bordered data-table">
+            <table class="table table-bordered data-table-pending">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -121,7 +213,6 @@
                         <th>Lecture Code</th>
                         <th>Used for</th>
                         <th>Phone Number</th>
-                        <th>Status</th>
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
@@ -135,6 +226,69 @@
 
 </div>
 
+<div class="row mx-1 mb-5">
+    <div class="col-lg-12 order-lg-1 bg-white rounded shadow">
+        <div class="my-3 d-inline-block w-100">
+            <h6 class="m-0 font-weight-bold text-danger">Accept</h6>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered data-table-accept">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Position</th>
+                        <th>User</th>
+                        <th>Room</th>
+                        <th>Building</th>
+                        <th>Start Date</th>
+                        <th>Time</th>
+                        <th>Lecture Code</th>
+                        <th>Used for</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mx-1 mb-5">
+    <div class="col-lg-12 order-lg-1 bg-white rounded shadow">
+        <div class="my-3 d-inline-block w-100">
+            <h6 class="m-0 font-weight-bold text-danger">Denied</h6>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered data-table-denied">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Position</th>
+                        <th>User</th>
+                        <th>Room</th>
+                        <th>Building</th>
+                        <th>Start Date</th>
+                        <th>Time</th>
+                        <th>Lecture Code</th>
+                        <th>Used for</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 @endsection
