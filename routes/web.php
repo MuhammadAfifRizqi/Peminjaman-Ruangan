@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 // =============================== P U B L I C ================================
 // ============================================================================
 
-// Route::get('/', 'PageController@welcome')->name('welcome');
-Route::get('/', 'HomeController@student')->name('welcome');
-Route::get('/homestudent', 'HomeController@student')->name('homestudent');
+Route::get('/', 'PageController@welcome')->name('welcome');
 
 // ============================================================================
 // ================================ L O G I N =================================

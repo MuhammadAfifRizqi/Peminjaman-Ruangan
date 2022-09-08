@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-white text-dark" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/logo.png') }}"
-                    style="object-fit: cover;" alt="..." /></a>
+                    style="" alt="..." width="100px" class="h-100" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -48,13 +48,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>                   
                     @auth
                         </li>
-                        @if (Auth::user()->roles == 'admin')
-                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Dashboard</a>
-                            </li>
-                        @endif
                         {{-- <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Hallo,
                                 <b>{{ Auth::user()->name }}</b></a></li> --}}
                         <!-- Nav Item - User Information -->
@@ -82,7 +77,6 @@
                         </li>
                     @endauth
                     @guest
-                        <li class="nav-item"><a href={{ route('login') }} class="nav-link">Login</a></li>
                         <a href={{ route('register') }} class="btn btn-danger" type="button">Register</a>
                     @endguest
                 </ul>
@@ -93,7 +87,7 @@
         @yield('content')
     </div>
     <!-- Footer-->
-    <footer class="footer py-4">
+    <footer class="footer py-4 fixed-bottom">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; Telkom University 2021</div>

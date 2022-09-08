@@ -22,6 +22,23 @@ class PageController extends Controller
 {
     public function welcome(Request $request)
     {
+        //  check if user logged in
+        if (Auth::user() !== NULL) {
+            // if admin access will redirected to admin home
+            if (Auth::user()->roles == "admin") {
+                return redirect(route(
+                    'admin.home'
+                ));
+            }
+
+            // if not admin will redirected to home
+            if (Auth::user()->roles != "admin") {
+                return redirect(route(
+                    'home'
+                ));
+            }
+        }
+
         return view('welcome');
     }
 }
