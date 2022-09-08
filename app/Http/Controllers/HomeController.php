@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
+use App\Booking;
 use App\User;
 use App\Building;
 use App\Charts\AgeChart;
@@ -41,6 +43,8 @@ class HomeController extends Controller
         $chartBar = $chartProduct->build();
         return view('cms.home', compact('chartDonut', 'chartBar', 'chartArea', 'chartExpense', 'chartTransaction'));
 
+
+        $bookings = Booking::groupBy('id_room')->select('id_room', DB::raw('count(*) as total'))->get();
     }
 
     public function student(){

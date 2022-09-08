@@ -13,4 +13,9 @@ class Building extends Model
     {
         return $this->hasMany(Room::class, 'id_building');
     }
+
+    public function booking()
+    {
+        return $this->hasMany(Booking::class, 'id_building');
+    }
 }

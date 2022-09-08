@@ -17,6 +17,7 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_room');
+            $table->unsignedInteger('id_building');
             $table->dateTime('date');
             $table->integer('time');
             $table->string('lecturer_code');
@@ -33,6 +34,11 @@ class CreateBookingsTable extends Migration
                 ->references('id')
                 ->on('rooms')
                 ->onDelete('cascade')->onUpdate('cascade');
+
+                $table->foreign('id_building')
+                    ->references('id')
+                    ->on('buildings')
+                    ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

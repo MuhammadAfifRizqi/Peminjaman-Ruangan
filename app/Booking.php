@@ -18,4 +18,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Room::class, 'id_room', 'id');
     }
+
+    public function building(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Building::class, 'id_building', 'id');
+    }
 }

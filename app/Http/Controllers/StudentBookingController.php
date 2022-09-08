@@ -71,6 +71,7 @@ class StudentBookingController extends Controller
         $booking = new Booking();
         $booking->id_user = Auth::user()->id;
         $booking->id_room = $request->id_room;
+        $booking->id_building = Room::with('building')->find($request->id_room)->building->id;
         $booking->date = $request->date;
         $booking->time = $request->time;
         $booking->lecturer_code = $request->lecturer_code;
