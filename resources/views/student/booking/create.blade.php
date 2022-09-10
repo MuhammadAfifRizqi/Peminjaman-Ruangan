@@ -57,7 +57,7 @@
                                         <select class="form-control selectpicker" id="id_room" name="id_room" data-live-search="true">
                                             @foreach ($rooms as $rm)
                                                 <option value="{{ $rm->id }}">
-                                                    {{ $rm->room_number }}</option>
+                                                    {{ $rm->room_number.' | Capacity: '.$rm->capacity }}</option>
                                             @endforeach
                                         </select>
                                     </div>
