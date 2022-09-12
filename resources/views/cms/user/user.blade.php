@@ -59,9 +59,9 @@
 <nav class="navbar navbar-light px-0 py-3">
     <h1 class="h3 mb-4 text-gray-800">{{ __('User Management') }}</h1>
     <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="{{route('user.create')}}" class="btn btn-dark border-0">New User</a>
-        </li>
+        </li> -->
     </ul>
 </nav>
 

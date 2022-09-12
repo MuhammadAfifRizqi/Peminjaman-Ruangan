@@ -165,14 +165,14 @@
 @section('main-content')
 <!-- Page Heading -->
 
-<nav class="navbar navbar-light px-0 py-3">
+<!-- <nav class="navbar navbar-light px-0 py-3">
     <h1 class="h3 mb-4 text-gray-800">{{ __('Booking') }}</h1>
     <ul class="navbar-nav">
         <li class="nav-item">
             <a href="{{ route('booking.create') }}" class="btn btn-dark border-0">New Booking</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
